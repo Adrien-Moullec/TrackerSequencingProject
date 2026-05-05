@@ -1,0 +1,16 @@
+
+CREATE TABLE Music (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER
+);
+
+
+INSERT INTO users (name, age)
+VALUES ("Alice", 25);
+
+INSERT INTO users (name, age)
+VALUES ("Bob", 30);
+
+
+// USE SQLite4Unity3d

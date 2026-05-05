@@ -1,0 +1,327 @@
+{
+    "startingSettings": {
+        "tempo": 0
+    },
+    "musicSettings": [
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        },
+        {
+            "tempo": 0
+        }
+    ],
+    "channels": [
+        {
+            "defineChannelStart": {
+                "playback": ""
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                }
+            ]
+        },
+        {
+            "defineChannelStart": {
+                "playback": ""
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                }
+            ]
+        },
+        {
+            "defineChannelStart": {
+                "playback": "sdadsa"
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "sa"
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "ad"
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "sa"
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "sa"
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "d"
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": 0.0,
+                        "duration": 0.0
+                    },
+                    "channelSettings": {
+                        "playback": "s"
+                    }
+                }
+            ]
+        }
+    ]
+}
