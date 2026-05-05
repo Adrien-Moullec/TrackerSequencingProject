@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/" />
+  <Project Path="IRPC/IRPC.vcxproj" Id="43a502fc-805d-4d1b-99d7-9b1533a286a3" />
+</Solution>

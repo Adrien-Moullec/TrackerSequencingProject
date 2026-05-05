@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\sf2Playback.obj",
+            "outputs": [
+                "x64\\Debug\\sf2Playback.h_D0E19D2DC1BE94ED.ifc.dt.module.json",
+                "x64\\Debug\\sf2Playback.h_D0E19D2DC1BE94ED.ifc.dt.d.json",
+                "x64\\Debug\\sf2Playback.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "G:\\CurrentProjects\\IRPC\\IRPC\\sf2Playback.h",
+                    "source-path": "g:\\currentprojects\\irpc\\irpc\\sf2playback.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
