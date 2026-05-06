@@ -1,6 +1,6 @@
 {
     "startingSettings": {
-        "tempo": "480"
+        "tempo": "700"
     },
     "musicSettings": [
         {
@@ -64,7 +64,7 @@
     "channels": [
         {
             "defineChannelStart": {
-                "instrument": "5",
+                "instrument": "7",
                 "volume": ""
             },
             "CommandLines": [
@@ -108,7 +108,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "0",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -130,7 +130,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "1",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -152,7 +152,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "2",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -174,7 +174,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "3",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -196,7 +196,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "4",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -218,7 +218,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "5",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -240,7 +240,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "6",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -262,7 +262,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "7",
+                        "instrument": "",
                         "volume": ""
                     }
                 },
@@ -281,7 +281,7 @@
         },
         {
             "defineChannelStart": {
-                "instrument": "5",
+                "instrument": "9",
                 "volume": ""
             },
             "CommandLines": [

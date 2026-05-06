@@ -7,6 +7,7 @@ using System;
 
 namespace TrackSequencingTool
 {
+    [RequireComponent(typeof(AudioSource))]
     public class TrackerDllPlayback : MonoBehaviour
     {
         #region Export functions
@@ -31,6 +32,9 @@ namespace TrackSequencingTool
 
         [DllImport(DdlReference)]
         private static extern int Audio_Shutdown();
+
+        [DllImport(DdlReference)]
+        static extern void Audio_Render(IntPtr buffer, int frames);
         #endregion
 
         #region Playback Variables
@@ -38,6 +42,8 @@ namespace TrackSequencingTool
         public TrackSequencer trackSequencer;
         public float interval;
         bool isPlaying = false;
+        float[] nativeBuffer;
+        AudioSource audioSource;
         #endregion
 
         public void PlayTrack() =>
@@ -102,9 +108,65 @@ namespace TrackSequencingTool
 
         public void Start()
         {
+            InitializeAudioSource();
             Debug.Log("INIT = " + Audio_Init(Path.Combine(Application.streamingAssetsPath, "FluidR3_GM.sf2"), AudioSettings.outputSampleRate, 0.5f));
             trackSequencer = JsonReadWrite.ReadJSON(textAsset);
         }
+        void InitializeAudioSource()
+        {
+
+            audioSource = GetComponent<AudioSource>();
+
+            audioSource.playOnAwake = true;
+            audioSource.loop = true;
+
+            // Silent looping clip
+            audioSource.clip = AudioClip.Create(
+                "Silent",
+                AudioSettings.outputSampleRate,
+                2,
+                AudioSettings.outputSampleRate,
+                false
+            );
+
+            audioSource.Play();
+
+            Debug.Log(
+                "INIT = " +
+                Audio_Init(
+                    Path.Combine(
+                        Application.streamingAssetsPath,
+                        "FluidR3_GM.sf2"
+                    ),
+                    AudioSettings.outputSampleRate,
+                    0.5f
+                )
+            );
+
+            trackSequencer = JsonReadWrite.ReadJSON(textAsset);
+        }
+
+        void OnAudioFilterRead(float[] data, int channels)
+        {
+            int frames = data.Length / channels;
+
+            if (nativeBuffer == null || nativeBuffer.Length != data.Length)
+                nativeBuffer = new float[data.Length];
+
+            GCHandle handle =
+                GCHandle.Alloc(nativeBuffer, GCHandleType.Pinned);
+
+            try
+            {
+                Audio_Render(handle.AddrOfPinnedObject(), frames);
+                Array.Copy(nativeBuffer, data, data.Length);
+            }
+            finally
+            {
+                handle.Free();
+            }
+        }
+
 
         public void OnSetChannelPreset(int channel, int presets) =>
             SetChannelPreset(channel, presets);

@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "g:\\currentprojects\\irpc\\irpc\\sf2playback.h",
+        "Source": "g:\\currentprojects\\trackersequencingproject\\irpc\\irpc\\sf2playback.h",
         "ProvidedModule": "",
         "Includes": [
-            "g:\\currentprojects\\irpc\\irpc\\tsf.h",
-            "g:\\currentprojects\\irpc\\irpc\\miniaudio.h",
+            "g:\\currentprojects\\trackersequencingproject\\irpc\\irpc\\tsf.h",
+            "g:\\currentprojects\\trackersequencingproject\\irpc\\irpc\\miniaudio.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stddef.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt.h",
             "g:\\apps\\visual studio\\product\\vc\\tools\\msvc\\14.50.35717\\include\\vcruntime.h",

@@ -5,14 +5,14 @@
         {
             "primary-output": "x64\\Debug\\sf2Playback.h.obj",
             "outputs": [
-                "G:\\CurrentProjects\\IRPC\\IRPC\\x64\\Debug\\vc145.pdb",
+                "G:\\CurrentProjects\\TrackerSequencingProject\\IRPC\\IRPC\\x64\\Debug\\vc145.pdb",
                 "x64\\Debug\\",
-                "G:\\CurrentProjects\\IRPC\\IRPC\\x64\\Debug\\sf2Playback.h.ifc"
+                "G:\\CurrentProjects\\TrackerSequencingProject\\IRPC\\IRPC\\x64\\Debug\\sf2Playback.h.ifc"
             ],
             "provides": [
                 {
                     "logical-name": "sf2Playback.h",
-                    "source-path": "g:\\currentprojects\\irpc\\irpc\\sf2playback.h",
+                    "source-path": "g:\\currentprojects\\trackersequencingproject\\irpc\\irpc\\sf2playback.h",
                     "lookup-method": "absolute"
                 }
             ],
