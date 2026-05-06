@@ -8,10 +8,12 @@ namespace TrackSequencingTool
 {
     public class JsonEditorWindow : EditorWindow
     {
+        #region Initialize
         TextAsset jsonFile;
+        int beats = 4;
         private TrackSequencer sequencer = null;
         private Vector2 channelScroll;
-        [SerializeField] float channelWidth = 200;
+        float channelWidth = 200;
 
         [MenuItem("JSON/Track Sequencer Editor")]
         private static void OpenWindow()
@@ -19,68 +21,49 @@ namespace TrackSequencingTool
             JsonEditorWindow wnd = GetWindow<JsonEditorWindow>();
             wnd.titleContent = new GUIContent("Track Sequencer Editor");
         }
+        #endregion
 
         #region Data Interaction
         void ReadFromJson()
         {
             if (jsonFile == null) return;
-            sequencer = JsonUtility.FromJson<TrackSequencer>(jsonFile.text);
+            sequencer = JsonReadWrite.ReadJSON(jsonFile);
 
             #region Data checker
-            if (sequencer == null)
-                sequencer = new TrackSequencer();
-
-            if (sequencer.channels == null)
-                sequencer.channels = new List<Channel>();
-
-            if (sequencer.musicSettings == null)
-                sequencer.musicSettings = new List<MusicSettings>();
-
+            CheckNull(ref sequencer);
+            CheckNull(ref sequencer.channels);
+            CheckNull(ref sequencer.musicSettings);
             foreach (var c in sequencer.channels)
             {
-                if (c.CommandLines == null)
-                    c.CommandLines = new List<MusicCommand>();
-
-                if (c.defineChannelStart == null)
-                    c.defineChannelStart = new ChannelSettings();
+                CheckNull(ref c.CommandLines);
+                CheckNull(ref c.defineChannelStart);
             }
             #endregion
         }
-
         void ReadToJson(TrackSequencer trackSequencer)
         {
             if (trackSequencer == null || jsonFile == null) return;
-            JsonEditor.OutputJSON(trackSequencer, jsonFile);
+            JsonReadWrite.OutputJSON(trackSequencer, jsonFile);
         }
-
         void DisplayFileArea()
         {
             jsonFile = (TextAsset)EditorGUILayout.ObjectField("JSON File", jsonFile, typeof(TextAsset), false);
 
-            if (GUILayout.Button("Read File"))
-                ReadFromJson();
-
-            if (GUILayout.Button("Save Progress"))
-                ReadToJson(sequencer);
-
-            if (GUILayout.Button("Nullify"))
-                sequencer = null;
-
-            if (sequencer == null)
-                return;
-
-            GUILayout.Label("Sequencer Settings");
-
+            if (GUILayout.Button("Read File")) ReadFromJson();
+            if (GUILayout.Button("Save Progress")) ReadToJson(sequencer);
+            if (GUILayout.Button("Nullify")) sequencer = null;
+            if (sequencer == null) return;
             if (GUILayout.Button("Clear"))
             {
                 sequencer = new TrackSequencer();
                 ReadToJson(sequencer);
                 ReadFromJson();
             }
+            beats = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Value"), beats), 2, 16);
         }
         #endregion
 
-        #region GUI Layout
+        #region Text Asset Options
         private void OnGUI()
         {
             EditorGUILayout.BeginVertical();
@@ -106,7 +89,6 @@ namespace TrackSequencingTool
             EditorGUILayout.EndScrollView();
             #endregion
         }
-
         void SequencerSettings()
         {
             if (sequencer == null) return;
@@ -117,76 +99,64 @@ namespace TrackSequencingTool
             if (GUILayout.Button("Add command"))
             {
                 if (sequencer == null) return;
-                ReadToJson(sequencer);
-                int newListLength = GetMaxListLengthFromSequencer(sequencer) + 1;
-
-                foreach (var channel in sequencer.channels)
-                {
-                    CheckNull(ref channel.CommandLines);
-                    NormalizeListLength(ref channel.CommandLines, newListLength);
-                }
-                NormalizeListLength(ref sequencer.musicSettings, newListLength);
+                CheckCommandLines(TrackSequencer.GetMaxListLengthFromSequencer(sequencer) + 1);
             }
 
             if (GUILayout.Button("Add Channel"))
             {
                 if (sequencer == null) return;
-                ReadToJson(sequencer);
-                int newLength = GetMaxListLengthFromSequencer(sequencer);
+                int newLength = TrackSequencer.GetMaxListLengthFromSequencer(sequencer);
                 sequencer.channels.Add(new Channel
                 {
-                    CommandLines = new List<MusicCommand>(newLength),
-                    defineChannelStart = new ChannelSettings()
+                    CommandLines = new List<ChannelLine>(newLength),
+                    defineChannelStart = new InstrumentSettings()
                 });
-
-                foreach (var channel in sequencer.channels)
-                {
-                    CheckNull(ref channel.CommandLines);
-                    NormalizeListLength(ref channel.CommandLines, newLength);
-                }
-                CheckNull(ref sequencer.musicSettings);
-                NormalizeListLength(ref sequencer.musicSettings, newLength);
+                CheckCommandLines(newLength);
             }
         }
+        #endregion
 
+        #region Channel layout
         void MusicSettingsDisplay()
         {
             if (sequencer == null) return;
-            int num = 0;
+            int num = 1;
 
             CheckNull(ref sequencer.startingSettings);
             CheckNull(ref sequencer.musicSettings);
 
             DrawHorizontal(() => sequencer.startingSettings.EditorDraw());
+            EditorGUILayout.Space(2);
+
             foreach (var l in sequencer.musicSettings)
             {
                 if (l == null) continue;
-                DrawHorizontal(() => l.EditorDraw(), num++.ToString()); //
+                if (num % beats == 0) EditorGUILayout.Space(2);
+                DrawHorizontal(() => l.EditorDraw(), num++.ToString());
             }
         }
-
         void DisplayChannel(Channel channel)
         {
             if (channel == null) return;
-            int num = 0;
+            int num = 1;
 
             CheckNull(ref channel.defineChannelStart);
             CheckNull(ref channel.CommandLines);
 
             DrawHorizontal(() => { channel.defineChannelStart.EditorDraw(); });
+            EditorGUILayout.Space(2);
 
             foreach (var l in channel.CommandLines)
             {
                 if (l == null) continue;
+                num %= beats;
+                if (num == 0) { EditorGUILayout.Space(2); num++; }
 
                 CheckNull(ref l.channelSettings);
                 CheckNull(ref l.PlaybackLine);
-                DrawHorizontal(() => l.EditorDraw(num++.ToString()), num.ToString());
+                DrawHorizontal(() => l.EditorDraw(), num++.ToString());
             }
         }
-        #endregion
-
-        #region Layout Structures
         void DisplayVerticalData(Action action, string channelName)
         {
             GUI.backgroundColor = Color.cyan;
@@ -205,6 +175,9 @@ namespace TrackSequencingTool
             action();
             EditorGUILayout.EndHorizontal();
         }
+        #endregion
+
+        #region Variable Settings
         void CheckNull<T>(ref T variable) where T : class, new()
         {
             if (variable == null) variable = new T();
@@ -213,22 +186,6 @@ namespace TrackSequencingTool
         {
             if (list == null) list = new List<T>();
         }
-        #endregion
-
-        #region List Settings
-        int GetMaxListLengthFromSequencer(TrackSequencer t)
-        {
-            if (t == null || t?.channels == null)
-                return 0;
-            int maxChannel = 0;
-
-            foreach (var c in t.channels)
-                if (c?.CommandLines != null)
-                    maxChannel = Mathf.Max(maxChannel, c.CommandLines.Count);
-
-            return Mathf.Max(maxChannel, t.musicSettings?.Count ?? 0);
-        }
-
         void NormalizeListLength<T>(ref List<T> list, int newLength, T paddingValue = default)
         {
             CheckNull(ref list);
@@ -237,6 +194,17 @@ namespace TrackSequencingTool
                 list.RemoveRange(newLength, list.Count - newLength);
             else if (list.Count < newLength)
                 list.AddRange(Enumerable.Repeat(paddingValue, newLength - list.Count));
+        }
+        void CheckCommandLines(int newLength)
+        {
+            foreach (var channel in sequencer.channels)
+            {
+                CheckNull(ref channel.CommandLines);
+                NormalizeListLength(ref channel.CommandLines, newLength);
+            }
+            CheckNull(ref sequencer.musicSettings);
+            NormalizeListLength(ref sequencer.musicSettings, newLength);
+            ReadToJson(sequencer);
         }
         #endregion
     }

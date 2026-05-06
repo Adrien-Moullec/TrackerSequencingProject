@@ -1,14 +1,14 @@
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
 namespace TrackSequencingTool
 {
-    public class JsonEditor : MonoBehaviour
+    public static class JsonReadWrite
     {
-        [SerializeField] string file;
-        public TrackSequencer trackSequencer = new();
-
+        public static TrackSequencer ReadJSON(TextAsset textAsset) =>
+            JsonUtility.FromJson<TrackSequencer>(textAsset.text);
         public static void OutputJSON(TrackSequencer trackSequencer, string fileName = "jsonTest")
         {
             string outputStr = JsonUtility.ToJson(trackSequencer, true);
@@ -27,8 +27,14 @@ namespace TrackSequencingTool
                 JsonUtility.ToJson(trackSequencer, true)
             );
             AssetDatabase.Refresh();
+        }
 
-            Debug.Log("Saved JSON");
+        public static void ColourUI(Action action, Color color)
+        {
+            Color colorHold = GUI.backgroundColor;
+            GUI.backgroundColor = color;
+            action();
+            GUI.backgroundColor = colorHold;
         }
 
     }

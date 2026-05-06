@@ -1,324 +1,1148 @@
 {
     "startingSettings": {
-        "tempo": 0
+        "tempo": ""
     },
     "musicSettings": [
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
         },
         {
-            "tempo": 0
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
+        },
+        {
+            "tempo": ""
         }
     ],
     "channels": [
         {
             "defineChannelStart": {
-                "playback": ""
+                "preset": "",
+                "volume": ""
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "60",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "62",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "64",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "65",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "67",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "69",
+                        "velocity": "1",
+                        "duration": "1"
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 }
             ]
         },
         {
             "defineChannelStart": {
-                "playback": ""
+                "preset": "",
+                "volume": ""
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 }
             ]
         },
         {
             "defineChannelStart": {
-                "playback": "sdadsa"
+                "preset": "",
+                "volume": ""
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "sa"
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "ad"
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "sa"
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "sa"
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "d"
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": ""
+                        "preset": "",
+                        "volume": ""
                     }
                 },
                 {
                     "PlaybackLine": {
                         "key": "",
-                        "velocity": 0.0,
-                        "duration": 0.0
+                        "velocity": "",
+                        "duration": ""
                     },
                     "channelSettings": {
-                        "playback": "s"
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                }
+            ]
+        },
+        {
+            "defineChannelStart": {
+                "preset": "",
+                "volume": ""
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                }
+            ]
+        },
+        {
+            "defineChannelStart": {
+                "preset": "",
+                "volume": ""
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "",
+                        "velocity": "",
+                        "duration": ""
+                    },
+                    "channelSettings": {
+                        "preset": "",
+                        "volume": ""
                     }
                 }
             ]
