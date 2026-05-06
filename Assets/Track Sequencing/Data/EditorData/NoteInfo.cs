@@ -15,7 +15,7 @@ namespace TrackSequencingTool
         protected override void DrawValues()
         {
 
-            GUILayout.Label("Key", GUILayout.Width(CellWidth));
+            EditorGUILayout.LabelField("Key", GUILayout.Width(CellWidth));
             key = int.TryParse(
                 EditorGUILayout.TextField(key, GUILayout.Width(CellWidth)),
                 out int value
@@ -24,14 +24,14 @@ namespace TrackSequencingTool
 
             if (!string.IsNullOrEmpty(key))
             {
-                GUILayout.Label("Vel", GUILayout.Width(CellWidth));
+                EditorGUILayout.LabelField("Vel", GUILayout.Width(CellWidth));
                 velocity = EditorGUILayout.Slider(
                     float.TryParse(velocity, out float result) && result >= 0 && result <= 1 ? result : 1f, 0, 1, GUILayout.Width(CellWidth)
                 ).ToString();
 
-                GUILayout.Label("Dur", GUILayout.Width(CellWidth));
+                EditorGUILayout.LabelField("Dur", GUILayout.Width(CellWidth));
                 duration = EditorGUILayout.FloatField(
-                    int.TryParse(velocity, out int resultDur) && resultDur > 0 ? resultDur : 1,
+                    float.TryParse(velocity, out float resultDur) && resultDur > 0 ? resultDur : 1,
                     GUILayout.Width(CellWidth)
                 ).ToString();
             }

@@ -108,7 +108,7 @@ namespace TrackSequencingTool
                 int newLength = TrackSequencer.GetMaxListLengthFromSequencer(sequencer);
                 sequencer.channels.Add(new Channel
                 {
-                    CommandLines = new List<ChannelLine>(newLength),
+                    CommandLines = new List<CommandLine>(newLength),
                     defineChannelStart = new InstrumentSettings()
                 });
                 CheckCommandLines(newLength);
@@ -152,7 +152,7 @@ namespace TrackSequencingTool
                 num %= beats;
                 if (num == 0) { EditorGUILayout.Space(2); num++; }
 
-                CheckNull(ref l.channelSettings);
+                CheckNull(ref l.instrumentSettings);
                 CheckNull(ref l.PlaybackLine);
                 DrawHorizontal(() => l.EditorDraw(), num++.ToString());
             }
@@ -170,7 +170,7 @@ namespace TrackSequencingTool
         }
         void DrawHorizontal(Action action, string label = "-")
         {
-            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.BeginHorizontal(GUILayout.Width(100));
             EditorGUILayout.LabelField(label, GUILayout.Width(35));
             action();
             EditorGUILayout.EndHorizontal();

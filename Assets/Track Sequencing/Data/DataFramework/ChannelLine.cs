@@ -6,13 +6,13 @@ using UnityEngine;
 namespace TrackSequencingTool
 {
     [Serializable]
-    public class ChannelLine
+    public class CommandLine
     {
         public NoteInfo PlaybackLine;
-        public InstrumentSettings channelSettings;
+        public InstrumentSettings instrumentSettings;
         public void EditorDraw()
         {
-            channelSettings.EditorDraw();
+            instrumentSettings.EditorDraw();
             PlaybackLine.EditorDraw();
         }
     }

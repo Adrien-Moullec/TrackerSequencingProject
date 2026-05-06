@@ -9,6 +9,6 @@ namespace TrackSequencingTool
     public class Channel
     {
         public InstrumentSettings defineChannelStart;
-        public List<ChannelLine> CommandLines = new();
+        public List<CommandLine> CommandLines = new();
     }
 }
