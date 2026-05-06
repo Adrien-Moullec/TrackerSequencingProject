@@ -9,19 +9,14 @@ namespace TrackSequencingTool
     {
         public static TrackSequencer ReadJSON(TextAsset textAsset) =>
             JsonUtility.FromJson<TrackSequencer>(textAsset.text);
-        public static void OutputJSON(TrackSequencer trackSequencer, string fileName = "jsonTest")
+        public static void OutputJSON(TrackSequencer trackSequencer, string fileName)
         {
             string outputStr = JsonUtility.ToJson(trackSequencer, true);
             File.WriteAllText(Application.dataPath + "/Resources/Track Sequencer/" + fileName + ".json", outputStr);
         }
         public static void OutputJSON(TrackSequencer trackSequencer, TextAsset file)
         {
-            if (trackSequencer == null || file == null)
-            {
-                Debug.LogError("TrackSequencer or file is null.");
-                return;
-            }
-
+            if (trackSequencer == null || file == null) return;
             File.WriteAllText(
                 AssetDatabase.GetAssetPath(file),
                 JsonUtility.ToJson(trackSequencer, true)

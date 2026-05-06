@@ -54,6 +54,7 @@ int uninitiate_tsf() {
     if (!g_sf)
         return 0;
     tsf_close(g_sf);
+    g_sf = NULL;
     return 1;
 }
 
@@ -101,13 +102,16 @@ int Set_Channel_Preset(int channel, int preset) {
     return preset;
 }
 int Get_Channel_Preset(int channel) {
+    if (!g_sf) return -1;
     return tsf_channel_get_preset_index(g_sf, channel);
 }
 int Get_Preset_Count() {
+    if (!g_sf) return -1;
     return tsf_get_presetcount(g_sf);
 }
 int Get_Channel_Count()
 {
+    if (!g_sf) return -1;
     if (!g_sf->channels)
         return 0;
 

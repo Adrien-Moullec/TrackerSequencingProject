@@ -10,6 +10,7 @@ namespace TrackSequencingTool
     {
         #region Initialize
         TextAsset jsonFile;
+        string newJsonFileName = "";
         int beats = 4;
         private TrackSequencer sequencer = null;
         private Vector2 channelScroll;
@@ -47,18 +48,21 @@ namespace TrackSequencingTool
         }
         void DisplayFileArea()
         {
+            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
             jsonFile = (TextAsset)EditorGUILayout.ObjectField("JSON File", jsonFile, typeof(TextAsset), false);
-
             if (GUILayout.Button("Read File")) ReadFromJson();
             if (GUILayout.Button("Save Progress")) ReadToJson(sequencer);
             if (GUILayout.Button("Nullify")) sequencer = null;
+            GUILayout.EndVertical();
+
+            GUILayout.BeginVertical();
+            newJsonFileName = GUILayout.TextField(newJsonFileName);
+            if (GUILayout.Button("Create New File")) JsonReadWrite.OutputJSON(null, newJsonFileName);
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
             if (sequencer == null) return;
-            if (GUILayout.Button("Clear"))
-            {
-                sequencer = new TrackSequencer();
-                ReadToJson(sequencer);
-                ReadFromJson();
-            }
             beats = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Value"), beats), 2, 16);
         }
         #endregion

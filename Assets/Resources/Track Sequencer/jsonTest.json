@@ -1,6 +1,6 @@
 {
     "startingSettings": {
-        "tempo": "120"
+        "tempo": "480"
     },
     "musicSettings": [
         {
@@ -31,7 +31,7 @@
             "tempo": ""
         },
         {
-            "tempo": "30"
+            "tempo": "1000"
         },
         {
             "tempo": ""
@@ -474,7 +474,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "76",
+                        "key": "79",
                         "velocity": "1",
                         "duration": "1"
                     },

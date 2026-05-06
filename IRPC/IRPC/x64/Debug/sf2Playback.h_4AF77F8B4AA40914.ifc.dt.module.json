@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\sf2Playback.obj",
+            "outputs": [
+                "x64\\Debug\\sf2Playback.h_4AF77F8B4AA40914.ifc.dt.module.json",
+                "x64\\Debug\\sf2Playback.h_4AF77F8B4AA40914.ifc.dt.d.json",
+                "x64\\Debug\\sf2Playback.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "G:\\CurrentProjects\\TrackerSequencingProject\\IRPC\\IRPC\\sf2Playback.h",
+                    "source-path": "g:\\currentprojects\\trackersequencingproject\\irpc\\irpc\\sf2playback.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
