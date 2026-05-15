@@ -14,11 +14,11 @@ namespace TrackSequencingTool
         protected override void DrawValues()
         {
             EditorGUILayout.LabelField("Inst", GUILayout.Width(CellWidth));
-            instrument = int.TryParse(EditorGUILayout.TextField(instrument), out int valI) && valI >= 0 ?
+            instrument = int.TryParse(EditorGUILayout.TextField(instrument, GUILayout.Width(CellWidth)), out int valI) && valI >= 0 ?
             valI.ToString() :
             "";
             EditorGUILayout.LabelField("Vol", GUILayout.Width(CellWidth));
-            volume = float.TryParse(EditorGUILayout.TextField(volume), out float valF) && valF >= 0 && valF <= 1f
+            volume = float.TryParse(EditorGUILayout.TextField(volume, GUILayout.Width(CellWidth)), out float valF) && valF >= 0 && valF <= 1f
             ? valF.ToString()
             : "";
         }

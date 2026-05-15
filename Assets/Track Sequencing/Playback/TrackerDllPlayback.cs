@@ -46,8 +46,26 @@ namespace TrackSequencingTool
         AudioSource audioSource;
         #endregion
 
-        public void PlayTrack() =>
+
+        public void Start()
+        {
+            InitializeAudioSource();
+            Debug.Log("INIT = " + Audio_Init(Path.Combine(Application.streamingAssetsPath, "FluidR3_GM.sf2"), AudioSettings.outputSampleRate, 0.5f));
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.tag != "Player") return;
+
+            PlayTrack();
+        }
+
+
+        public void PlayTrack()
+        {
+            trackSequencer = JsonReadWrite.ReadJSON(textAsset);
             StartCoroutine(PlayTrackEnum());
+        }
         public void SetTempo(int speed)
         {
             interval = MusicFunctions.BeatTime(speed);
@@ -97,20 +115,13 @@ namespace TrackSequencingTool
                             chan,
                             int.Parse(noteInfo.key),
                             float.Parse(noteInfo.velocity),
-                            float.Parse(noteInfo.duration)
+                            float.Parse(noteInfo.duration) * interval
                         )
                     );
                 }
                 yield return new WaitForSeconds(interval);
             }
             isPlaying = false;
-        }
-
-        public void Start()
-        {
-            InitializeAudioSource();
-            Debug.Log("INIT = " + Audio_Init(Path.Combine(Application.streamingAssetsPath, "FluidR3_GM.sf2"), AudioSettings.outputSampleRate, 0.5f));
-            trackSequencer = JsonReadWrite.ReadJSON(textAsset);
         }
         void InitializeAudioSource()
         {

@@ -108,7 +108,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "0",
                         "volume": ""
                     }
                 },
@@ -130,7 +130,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "1",
                         "volume": ""
                     }
                 },
@@ -152,7 +152,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "2",
                         "volume": ""
                     }
                 },
@@ -174,7 +174,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "3",
                         "volume": ""
                     }
                 },
@@ -196,7 +196,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "4",
                         "volume": ""
                     }
                 },
@@ -218,7 +218,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "5",
                         "volume": ""
                     }
                 },
@@ -240,7 +240,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "6",
                         "volume": ""
                     }
                 },
@@ -262,7 +262,7 @@
                         "duration": "1"
                     },
                     "instrumentSettings": {
-                        "instrument": "",
+                        "instrument": "7",
                         "volume": ""
                     }
                 },

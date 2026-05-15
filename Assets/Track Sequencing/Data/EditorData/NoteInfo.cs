@@ -14,11 +14,12 @@ namespace TrackSequencingTool
 
         protected override void DrawValues()
         {
+            bool success = int.TryParse(key, out int value);
 
-            EditorGUILayout.LabelField("Key", GUILayout.Width(CellWidth));
+            EditorGUILayout.LabelField(success ? (TrackSequencerEditorWindow.noteTranslation[value % 12] + "" + Mathf.Floor(value / 12f)) : "", GUILayout.Width(CellWidth));
             key = int.TryParse(
                 EditorGUILayout.TextField(key, GUILayout.Width(CellWidth)),
-                out int value
+                out value
             )
             && value >= 0 && value <= 120 ? value.ToString() : "";
 
@@ -31,7 +32,7 @@ namespace TrackSequencingTool
 
                 EditorGUILayout.LabelField("Dur", GUILayout.Width(CellWidth));
                 duration = EditorGUILayout.FloatField(
-                    float.TryParse(velocity, out float resultDur) && resultDur > 0 ? resultDur : 1,
+                    float.TryParse(duration, out float resultDur) && resultDur > 0 ? resultDur : 1,
                     GUILayout.Width(CellWidth)
                 ).ToString();
             }

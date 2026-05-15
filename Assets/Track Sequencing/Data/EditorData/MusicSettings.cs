@@ -12,7 +12,7 @@ namespace TrackSequencingTool
         protected override void DrawValues()
         {
             EditorGUILayout.LabelField("Temp", GUILayout.Width(CellWidth));
-            tempo = int.TryParse(EditorGUILayout.TextField(tempo/*, GUILayout.Width(CellWidth)*/), out int value) && value >= 30 && value <= 1000 ? value.ToString() : "";
+            tempo = int.TryParse(EditorGUILayout.TextField(tempo, GUILayout.Width(CellWidth)), out int value) && value >= 30 && value <= 1000 ? value.ToString() : "";
         }
 
         protected override Color EditorColor() => Color.blue;
