@@ -1,50 +1,10 @@
 {
     "startingSettings": {
-        "tempo": "1000",
+        "tempo": "700",
         "volume": "",
         "timestampName": ""
     },
     "musicSettings": [
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
         {
             "tempo": "",
             "volume": "",
@@ -183,94 +143,6 @@
                         "velocity": "",
                         "duration": ""
                     }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
                 }
             ]
         },
@@ -278,14 +150,14 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "9",
+                "instrument": "10",
                 "velocity": "0.4",
                 "duration": "2.3"
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
-                        "key": "63"
+                        "key": "60"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -363,94 +235,6 @@
                 {
                     "PlaybackLine": {
                         "key": "79"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",
