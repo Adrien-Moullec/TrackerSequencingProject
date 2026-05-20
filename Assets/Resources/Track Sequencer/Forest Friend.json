@@ -91,9 +91,9 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "0",
-                "velocity": "0.1",
-                "duration": "2"
+                "instrument": "9",
+                "velocity": "0.2",
+                "duration": "2.3"
             },
             "CommandLines": [
                 {
@@ -258,7 +258,7 @@
                         "bank": "",
                         "instrument": "",
                         "velocity": "",
-                        "duration": ""
+                        "duration": "4"
                     }
                 },
                 {
@@ -278,9 +278,9 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "0",
+                "instrument": "9",
                 "velocity": "0.4",
-                "duration": "2"
+                "duration": "2.3"
             },
             "CommandLines": [
                 {
@@ -445,7 +445,7 @@
                         "bank": "",
                         "instrument": "",
                         "velocity": "",
-                        "duration": ""
+                        "duration": "4"
                     }
                 },
                 {

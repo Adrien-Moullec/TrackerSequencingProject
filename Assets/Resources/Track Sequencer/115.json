@@ -331,7 +331,7 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "0",
+                "instrument": "39",
                 "velocity": "0.2",
                 "duration": "1"
             },
