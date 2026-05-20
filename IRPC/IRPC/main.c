@@ -10,64 +10,82 @@
 extern "C" {
 #endif
 
-    static int g_initialized = 0;
+    static int Sf2Initialized = 0; // Consider making this a callable function instead?
 
-    EXPORT int Audio_Init(const char* path, int sampleRate, float gain)
+    /// Initialize audio using sf2 file
+    EXPORT int Tracker_Initialize(const char* path, int sampleRate, float gain)
     {
-        if (g_initialized)
+        if (Sf2Initialized)
             return 1;
 
-        int result = initiate_tsf(path, sampleRate, gain);
+        int result = InitiateTsf(path, sampleRate, gain);
 
         if (result)
-            g_initialized = 1;
+            Sf2Initialized = 1;
 
         return result;
     }
 
-    EXPORT int Audio_Shutdown()
+    /// Uninitialize audio shutdown
+    EXPORT int Tracker_Shutdown()
     {
-        if (!g_initialized)
+        if (!Sf2Initialized)
             return 0;
 
-        uninitiate_tsf();
-
-        g_initialized = 0;
-
+        UnitiateTsf();
+        Sf2Initialized = 0;
         return 1;
     }
 
-    EXPORT void Audio_Render(float* buffer, int frames)
+    /// Get initialized state
+    EXPORT int Tracker_GetInitializedState()
     {
-        if (!g_initialized)
+        return Sf2Initialized;
+    }
+
+    /// Audio sample pass-through
+    EXPORT void Tracker_AudioRender(float* buffer, int frames)
+    {
+        if (!Sf2Initialized)
             return;
 
         TsfAudioBuffer(buffer, frames);
     }
 
-    EXPORT int Audio_PlayNote(int channel, int key, float velocity)
+    /// Play note by channel and press-velocity
+    EXPORT int Tracker_PlayNote(int channel, int key, float velocity)
     {
         return PlayNote(channel, key, velocity);
     }
 
-    EXPORT int Audio_EndNote(int channel, int key)
+    /// End note in channel
+    EXPORT int Tracker_EndNote(int channel, int key)
     {
         return EndNote(channel, key);
     }
 
-    EXPORT int SetChannelPreset(int channel, int preset)
+    /// Set instrument preset in channel
+    EXPORT int Tracker_SetChannelPreset(int channel, int preset)
     {
-        return Set_Channel_Preset(channel, preset);
+        return SetChannelPreset(channel, preset);
     }
 
-    EXPORT int GetChannelPreset(int channel)
+    /// Set bank preset in channel
+    EXPORT int Tracker_SetBankPreset(int channel, int bank, int preset)
     {
-        return Get_Channel_Preset(channel);
+        return SetBankPreset(channel, bank, preset);
     }
 
-    EXPORT int GetPresetCount()
+    /// Get channel instrument preset
+    EXPORT int Tracker_GetChannelPreset(int channel)
     {
-        return Get_Preset_Count();
+        return GetChannelPreset(channel);
+    }
+
+    /// Get preset count in tsf file
+    EXPORT int Tracker_GetPresetCount()
+    {
+        return GetPresetCount();
     }
 
 #ifdef __cplusplus

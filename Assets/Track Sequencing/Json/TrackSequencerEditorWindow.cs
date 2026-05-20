@@ -1,348 +1,385 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace TrackSequencingTool
 {
+    using TEF = TrackerEditorFunctions;
+    using TDF = TrackerDataFunctions;
+    using JRW = JsonReadWrite;
+
+    /// <summary>
+    /// Editor window to display JSON file data for track sequencer
+    /// </summary>
     public class TrackSequencerEditorWindow : EditorWindow
     {
-        #region Initialize
+        #region Variables
+
+        // Json
         TextAsset jsonFile;
         string newJsonFileName = "";
-        int beats = 4;
+
+        // Channel settings
         private TrackSequencer sequencer = null;
         private Vector2 channelScroll;
-        float channelWidth = 200;
-        public static string[] noteTranslation = new string[]
-        {
-            "C",
-            "C#",
-            "D",
-            "D#",
-            "E",
-            "F",
-            "F#",
-            "G",
-            "G#",
-            "A",
-            "A#",
-            "B"
-        };
+        private float channelWidth = 220;
+        int beats = 4;
 
+        // Copy/Paste
+        private SequencerSelection selection = new();
+        private SequencerClipboard clipboard = new();
+
+        #endregion
+
+        #region Initialize
+
+        /// <summary>
+        /// Open track sequencer window
+        /// </summary>
         [MenuItem("JSON/Track Sequencer Editor")]
         private static void OpenWindow()
         {
             TrackSequencerEditorWindow wnd = GetWindow<TrackSequencerEditorWindow>();
             wnd.titleContent = new GUIContent("Track Sequencer Editor");
         }
+
         #endregion
 
-        #region Data Interaction
-        void ReadFromJson()
-        {
-            if (jsonFile == null) return;
-            sequencer = JsonReadWrite.ReadJSON(jsonFile);
-
-            #region Data checker
-            CheckNull(ref sequencer);
-            CheckNull(ref sequencer.channels);
-            CheckNull(ref sequencer.musicSettings);
-            foreach (var c in sequencer.channels)
-            {
-                CheckNull(ref c.CommandLines);
-                CheckNull(ref c.defineChannelStart);
-            }
-            #endregion
-        }
-        void ReadToJson(TrackSequencer trackSequencer)
-        {
-            if (trackSequencer == null || jsonFile == null) return;
-            JsonReadWrite.OutputJSON(trackSequencer, jsonFile);
-        }
-        void DisplayFileArea()
-        {
-            GUILayout.BeginHorizontal();
-            GUILayout.BeginVertical();
-            jsonFile = (TextAsset)EditorGUILayout.ObjectField("JSON File", jsonFile, typeof(TextAsset), false);
-            if (GUILayout.Button("Read File")) ReadFromJson();
-            if (GUILayout.Button("Save Progress")) ReadToJson(sequencer);
-            if (GUILayout.Button("Nullify")) sequencer = null;
-            GUILayout.EndVertical();
-
-            GUILayout.BeginVertical();
-            newJsonFileName = GUILayout.TextField(newJsonFileName);
-            if (GUILayout.Button("Create New File")) JsonReadWrite.OutputJSON(null, newJsonFileName);
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-            if (sequencer == null) return;
-            beats = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Value"), beats), 2, 16);
-        }
-        #endregion
-
-        #region Text Asset Options
+        #region GUI
+        /// <summary>
+        /// Draw whole window
+        /// </summary>
         private void OnGUI()
         {
+            /// Handle Keyboard shortcuts
+            TEF.KeyboardInputs(
+                // Copy
+                () => { clipboard.Copy(sequencer, selection); Repaint(); },
+
+                // Paste
+                () => { TDF.Paste(sequencer, clipboard, selection, jsonFile); Repaint(); },
+
+                // Undo
+                () => { TDF.UndoAction(sequencer, clipboard, jsonFile); Repaint(); },
+
+                // Redo
+                () => { TDF.RedoAction(sequencer, clipboard, jsonFile); Repaint(); },
+
+                // Clear Selection
+                () => { selection.ClearSelectedRows(sequencer); Repaint(); },
+
+                // Delete
+                () => { selection.Clear(); Repaint(); }
+            );
+
+            /// File handling area of editorwindow
             EditorGUILayout.BeginVertical();
             DisplayFileArea();
-            SequencerSettings();
+            if (jsonFile != null)
+            {
+                SequencerSettings();
+            }
+            else
+            {
+                EditorGUILayout.EndVertical();
+                return;
+            }
             EditorGUILayout.EndVertical();
 
-            if (sequencer == null)
-                return;
-
-            #region Channel Layout
+            /// Scroll area of the json file data interface
             channelScroll = EditorGUILayout.BeginScrollView(channelScroll);
             EditorGUILayout.BeginHorizontal();
-            DisplayVerticalData(MusicSettingsDisplay, "Music Settings");
+
+            /// Display the data that handles overall track settings
+            DisplayVerticalDataOutline(MusicSettingsDisplay, "Music Settings");
+
             if (sequencer.channels != null)
             {
                 int channelNum = 0;
                 foreach (var channel in sequencer.channels)
-                    if (channel != null)
-                        DisplayVerticalData(() => DisplayChannel(channel), "Channel " + channelNum++.ToString());
-            }
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.EndScrollView();
-            #endregion
-        }
-        void SequencerSettings()
-        {
-            if (sequencer == null) return;
-
-            CheckNull(ref sequencer.channels);
-            CheckNull(ref sequencer.musicSettings);
-
-            if (GUILayout.Button("Add command"))
-            {
-                if (sequencer == null) return;
-                CheckCommandLines(TrackSequencer.GetMaxListLengthFromSequencer(sequencer) + 1);
-            }
-
-            if (GUILayout.Button("Add Channel"))
-            {
-                if (sequencer == null) return;
-                int newLength = TrackSequencer.GetMaxListLengthFromSequencer(sequencer);
-                sequencer.channels.Add(new Channel
                 {
-                    CommandLines = new List<CommandLine>(newLength),
-                    defineChannelStart = new InstrumentSettings()
-                });
-                CheckCommandLines(newLength);
+                    if (channel == null)
+                        continue;
+
+                    /// Display list of editable command lines
+                    DisplayVerticalDataOutline(
+                        () => DisplayChannel(channel),
+                        "Channel " + channelNum
+                    );
+                    channelNum++;
+                }
             }
+
+            EditorGUILayout.EndHorizontal();
+            ColourUI(() =>
+            {
+                /// Delete Last line of file across all channels
+                if (GUILayout.Button("X"))
+                {
+                    TDF.SaveUndoState(sequencer, clipboard);
+                    sequencer.musicSettings.RemoveAt(sequencer.musicSettings.Count - 1);
+                    foreach (var c in sequencer.channels)
+                        c.CommandLines.RemoveAt(c.CommandLines.Count - 1);
+                }
+            }, Color.red);
+            EditorGUILayout.EndScrollView();
         }
         #endregion
 
-        #region Channel layout
+
+        #region Top UI
+        /// <summary>
+        /// Top part of editor window for json file handling and settings
+        /// </summary>
+        void DisplayFileArea()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
+            EditorGUI.BeginChangeCheck();
+            /// Json object field
+            jsonFile = (TextAsset)EditorGUILayout.ObjectField(
+                    "JSON File",
+                    jsonFile,
+                    typeof(TextAsset),
+                    false
+                );
+            if (EditorGUI.EndChangeCheck())
+            {
+                JRW.ReadJSON(jsonFile, ref sequencer);
+                Repaint();
+            }
+
+
+            /// If jsonFile is set, display Save option
+            if (jsonFile != null)
+            {
+                if (GUILayout.Button("Save Progress"))
+                    JRW.OutputJSON(sequencer, jsonFile);
+            }
+            GUILayout.EndVertical();
+
+
+            // New file options to right of editor window
+            GUILayout.BeginVertical();
+            newJsonFileName = GUILayout.TextField(newJsonFileName);
+            if (GUILayout.Button("Create New File"))
+                JRW.OutputJSON(
+                    null,
+                    newJsonFileName
+                );
+            GUILayout.EndVertical();
+            GUILayout.EndHorizontal();
+
+            if (sequencer == null) return;
+            beats = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Beats"), beats), 2, 16);
+        }
+
+        /// <summary>
+        /// Channel and command line settings allow addition
+        /// </summary>
+        void SequencerSettings()
+        {
+            if (sequencer == null)
+                return;
+            TDF.IsNull(ref sequencer.channels);
+            TDF.IsNull(ref sequencer.musicSettings);
+
+            /// Add command line to each channel
+            if (GUILayout.Button("Add Command"))
+            {
+                TDF.SaveUndoState(sequencer, clipboard);
+                Repaint();
+                int newLength = TrackSequencer.GetMaxListLengthFromSequencer(sequencer) + 1;
+                TDF.RefreshCommandLines(sequencer, newLength);
+                JRW.OutputJSON(sequencer, jsonFile);
+            }
+
+            /// Add a new channel
+            if (GUILayout.Button("Add Channel"))
+            {
+                TDF.SaveUndoState(sequencer, clipboard);
+                Repaint();
+                int newLength = TrackSequencer.GetMaxListLengthFromSequencer(sequencer);
+                sequencer.channels.Add(
+                    new Channel
+                    {
+                        CommandLines = new List<CommandLine>(newLength),
+                        defineChannelStart = new InstrumentSettings()
+                    }
+                );
+                TDF.RefreshCommandLines(sequencer, newLength);
+                JRW.OutputJSON(sequencer, jsonFile);
+            }
+        }
+
+        #endregion
+
+        #region Drawing
+        /// <summary>
+        /// Display entirety of music settings across the track sequencer
+        /// </summary>
         void MusicSettingsDisplay()
         {
             if (sequencer == null) return;
             int num = 0;
+            TDF.IsNull(ref sequencer.startingSettings);
 
-            CheckNull(ref sequencer.startingSettings);
-            CheckNull(ref sequencer.musicSettings);
-            DrawHorizontal(() => sequencer.startingSettings.EditorDraw(), -1, "-", false);
+            /// Initial settings
+            DrawHeaderRow(() => sequencer.startingSettings.EditorDraw());
+            DrawBeatSeparator();
 
-            var cd = GUI.color;
-            GUI.color = Color.black;
-            GUILayout.Label("", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.Height(10));
-            GUI.color = cd;
-
-            foreach (var l in sequencer.musicSettings)
+            /// Line by line settings
+            foreach (var line in sequencer.musicSettings)
             {
-                if (l == null) continue;
-                if (num % (beats) == 0)
-                {
-                    var c = GUI.color;
-                    GUI.color = Color.black;
-                    GUILayout.Label("", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.Height(10));
-                    GUI.color = c;
-                }
-                DrawHorizontal(() => l.EditorDraw(), num, (num++ + 1).ToString());
-            }
-        }
-        void DisplayChannel(Channel channel)
-        {
-            if (channel == null) return;
-            int num = 0;
-
-            CheckNull(ref channel.defineChannelStart);
-            CheckNull(ref channel.CommandLines);
-
-            DrawHorizontal(() => { channel.defineChannelStart.EditorDraw(); }, -1, "-", false);
-            var cd = GUI.color;
-            GUI.color = Color.black;
-            GUILayout.Label("", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.Height(10));
-            GUI.color = cd;
-
-            foreach (var l in channel.CommandLines)
-            {
-                if (l == null)
-                {
-                    num++;
-                    continue;
-                }
-
                 if (num % beats == 0)
-                {
-                    var c = GUI.color;
-                    GUI.color = Color.black;
-                    GUILayout.Label("", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.Height(10));
-                    GUI.color = c;
-                }
-
-                CheckNull(ref l.instrumentSettings);
-                CheckNull(ref l.PlaybackLine);
-
-                DrawHorizontal(() => l.EditorDraw(), num, (num + 1).ToString());
-
+                    DrawBeatSeparator();
+                DrawSelectableRow(
+                    (num + 1).ToString(),
+                    () => line.EditorDraw(),
+                    selection.IsMusicSelected(num),
+                    () => selection.SelectMusic(num, Event.current.shift)
+                );
                 num++;
             }
         }
-        void DisplayVerticalData(Action action, string channelName)
+
+
+        /// <summary>
+        /// Display entire channel in json file track sequencer
+        /// </summary>
+        /// <param name="channel"> Data for single-instrument playback </param>
+        void DisplayChannel(Channel channel)
         {
-            GUI.backgroundColor = Color.cyan;
-            EditorGUILayout.BeginVertical(GUI.skin.box, GUILayout.Width(channelWidth));
+            if (channel == null)
+                return;
 
-            EditorGUILayout.LabelField(channelName);
-            action?.Invoke();
+            int num = 0;
+            TDF.IsNull(ref channel.CommandLines);
+            TDF.IsNull(ref channel.defineChannelStart);
 
-            EditorGUILayout.EndVertical();
-            GUI.backgroundColor = Color.white;
-        }
-
-        void DrawHorizontal(Action action, int lineIndex, string label = "-", bool drawButtons = true)
-        {
-            EditorGUILayout.BeginHorizontal(GUILayout.Width(100));
-            EditorGUILayout.LabelField(label, GUILayout.Width(25));
-
-            if (drawButtons)
+            /// Display starting settings and channel deletion option
+            DrawHeaderRow(() =>
             {
-                GUI.enabled = lineIndex > 0;
-                if (GUILayout.Button("▲", GUILayout.Width(25)))
-                    MoveLine(lineIndex, lineIndex - 1);
-                GUI.enabled = true;
-
-                if (GUILayout.Button("▼", GUILayout.Width(25)))
-                    MoveLine(lineIndex, lineIndex + 1);
-
-                GUI.backgroundColor = Color.red;
-                if (GUILayout.Button("X", GUILayout.Width(25)))
+                channel.EditorDraw();
+                ColourUI(() =>
                 {
-                    DeleteLine(lineIndex);
-                    GUI.backgroundColor = Color.white;
+                    if (GUILayout.Button("Remove"))
+                    {
+                        TDF.SaveUndoState(sequencer, clipboard);
+                        sequencer.channels.Remove(channel);
+                    }
+                }, Color.red);
+            });
+            DrawBeatSeparator();
 
-                    EditorGUILayout.EndHorizontal();
-                    return;
-                }
-                GUI.backgroundColor = Color.white;
+            /// Display all the command lines / music notes in a channel
+            foreach (var line in channel.CommandLines)
+            {
+                if (num % beats == 0)
+                    DrawBeatSeparator();
+
+                DrawSelectableRow(
+                    (num + 1).ToString(),
+                    () => line?.EditorDraw(),
+                    selection.IsChannelSelected(channel, num),
+                    () => selection.SelectChannel(
+                            channel,
+                            num,
+                            Event.current.shift
+                        )
+                );
+                num++;
             }
-            action();
+        }
+
+        /// <summary>
+        /// Default horizontal layout template for data to be used with keyboard shortcuts
+        /// </summary>
+        /// <param name="label"> Layout lable name </param>
+        /// <param name="drawAction"> The layout contents </param>
+        /// <param name="selected"> Whether the contents are currently selected </param>
+        /// <param name="onClick"> When the contents are clicked </param>
+        void DrawSelectableRow(string label, Action drawAction, bool selected, Action onClick)
+        {
+            Event e = Event.current;
+            Rect rowRect = EditorGUILayout.BeginHorizontal();
+
+            /// Selected and clicked events
+            if (selected) EditorGUI.DrawRect(rowRect, new Color(0f, 1f, 1f, 0.15f));
+            if (e.type == EventType.MouseDown && e.button == 0 && rowRect.Contains(e.mousePosition) && GUIUtility.hotControl == 0)
+            {
+                onClick?.Invoke();
+                Repaint();
+            }
+
+            GUILayout.Label(label, GUILayout.Width(25));
+
+            /// Any changes to the layout will affect the save data
+            EditorGUI.BeginChangeCheck();
+            drawAction?.Invoke();
+            if (EditorGUI.EndChangeCheck())
+            {
+                TDF.SaveUndoState(sequencer, clipboard);
+                JRW.OutputJSON(sequencer, jsonFile);
+                Repaint();
+            }
             EditorGUILayout.EndHorizontal();
-            GUI.enabled = true;
         }
 
-        #endregion
+        /// <summary>
+        /// Default layout for header of each column/channel
+        /// </summary>
+        /// <param name="drawAction"> The contents of the header </param>
+        void DrawHeaderRow(Action drawAction)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("-", GUILayout.Width(25));
+            drawAction?.Invoke();
+            EditorGUILayout.EndHorizontal();
+        }
 
-        #region Variable Settings
-        void CheckNull<T>(ref T variable) where T : class, new()
-        {
-            if (variable == null) variable = new T();
-        }
-        void CheckNull<T>(ref List<T> list) where T : class, new()
-        {
-            if (list == null) list = new List<T>();
-        }
-        void NormalizeListLength<T>(ref List<T> list, int newLength, T paddingValue = default)
-        {
-            CheckNull(ref list);
-
-            if (list.Count > newLength)
-                list.RemoveRange(newLength, list.Count - newLength);
-            else if (list.Count < newLength)
-                list.AddRange(Enumerable.Repeat(paddingValue, newLength - list.Count));
-        }
-        void CheckCommandLines(int newLength)
-        {
-            foreach (var channel in sequencer.channels)
+        /// <summary>
+        /// A simple bar to seperate content
+        /// </summary>
+        void DrawBeatSeparator() =>
+            ColourUI(() =>
             {
-                CheckNull(ref channel.CommandLines);
-                NormalizeListLength(ref channel.CommandLines, newLength);
-            }
-            CheckNull(ref sequencer.musicSettings);
-            NormalizeListLength(ref sequencer.musicSettings, newLength);
-            ReadToJson(sequencer);
-        }
-        #endregion
+                GUILayout.Label(
+                    "",
+                    GUI.skin.box,
+                    GUILayout.ExpandWidth(true),
+                    GUILayout.Height(8)
+                );
+            }, Color.black);
 
-        #region Line Operations
-        void DeleteLine(int index)
+        /// <summary>
+        /// Layout for column/channel information
+        /// </summary>
+        /// <param name="action"> draw contents for the column </param>
+        /// <param name="channelName"> Display name of the column </param>
+        void DisplayVerticalDataOutline(Action action, string channelName) =>
+            ColourUI(() =>
+            {
+                GUI.backgroundColor = Color.cyan;
+                EditorGUILayout.BeginVertical(GUI.skin.box, GUILayout.Width(channelWidth));
+                EditorGUILayout.LabelField(channelName);
+                action?.Invoke();
+                EditorGUILayout.EndVertical();
+                GUI.backgroundColor = Color.white;
+            }, Color.black);
+
+        /// <summary>
+        /// Draw only a specific layout a certain colour, return to old colour at the end.
+        /// </summary>
+        /// <param name="action"> Contents to be colour-highlighted </param>
+        /// <param name="color"> Colour for the layout </param>
+        public static void ColourUI(Action action, Color color)
         {
-            if (sequencer == null)
-                return;
-
-            // Remove music setting
-            if (sequencer.musicSettings != null &&
-                index >= 0 &&
-                index < sequencer.musicSettings.Count)
-            {
-                sequencer.musicSettings.RemoveAt(index);
-            }
-
-            // Remove command line from every channel
-            foreach (var channel in sequencer.channels)
-            {
-                if (channel?.CommandLines == null)
-                    continue;
-
-                if (index >= 0 && index < channel.CommandLines.Count)
-                    channel.CommandLines.RemoveAt(index);
-            }
-
-            ReadToJson(sequencer);
-        }
-
-        void MoveLine(int from, int to)
-        {
-            if (sequencer == null)
-                return;
-
-            int max = TrackSequencer.GetMaxListLengthFromSequencer(sequencer);
-
-            if (from < 0 || from >= max)
-                return;
-
-            if (to < 0 || to >= max)
-                return;
-
-            // Move music settings
-            if (sequencer.musicSettings != null &&
-                from < sequencer.musicSettings.Count &&
-                to < sequencer.musicSettings.Count)
-            {
-                var item = sequencer.musicSettings[from];
-                sequencer.musicSettings.RemoveAt(from);
-                sequencer.musicSettings.Insert(to, item);
-            }
-
-            // Move every channel command line
-            foreach (var channel in sequencer.channels)
-            {
-                if (channel?.CommandLines == null)
-                    continue;
-
-                if (from >= channel.CommandLines.Count ||
-                    to >= channel.CommandLines.Count)
-                    continue;
-
-                var item = channel.CommandLines[from];
-                channel.CommandLines.RemoveAt(from);
-                channel.CommandLines.Insert(to, item);
-            }
-
-            ReadToJson(sequencer);
+            Color colorHold = GUI.backgroundColor;
+            GUI.backgroundColor = color;
+            action();
+            GUI.backgroundColor = colorHold;
         }
         #endregion
     }

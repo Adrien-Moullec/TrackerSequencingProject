@@ -375,7 +375,6 @@ Temp/bin/Debug/
  Unity.Searcher.Editor.dll
  Unity.Settings.Editor.dll
  Unity.ShaderGraph.Editor.dll
- Unity.ShaderGraph.Utilities.dll
  Unity.Splines.dll
  Unity.Splines.Editor.dll
  Unity.TestTools.CodeCoverage.Editor.dll

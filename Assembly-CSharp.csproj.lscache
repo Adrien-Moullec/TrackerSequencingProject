@@ -75,9 +75,13 @@ Assets/
   MusicSettings.cs
   NoteInfo.cs
   TrackerSequenceBaseData.cs
+ Track Sequencing/Json/Clipboard Options/
+  SequencerClipboard.cs
+  SequencerSelection.cs
+  TrackerKeyboardOptions.cs
  Track Sequencing/Json/
   JsonReadWrite.cs
-  Sf2InstrumentSummary.cs
+  TrackerDataFunctions.cs
   TrackSequencerEditorWindow.cs
  Track Sequencing/Playback/
   MusicFunctions.cs
@@ -381,7 +385,6 @@ Temp/bin/Debug/
  Unity.Searcher.Editor.dll
  Unity.Settings.Editor.dll
  Unity.ShaderGraph.Editor.dll
- Unity.ShaderGraph.Utilities.dll
  Unity.Splines.dll
  Unity.Splines.Editor.dll
  Unity.TestTools.CodeCoverage.Editor.dll
@@ -400,9 +403,7 @@ Temp/bin/Debug/
  Unity.VisualScripting.State.dll
  Unity.VisualScripting.State.Editor.dll
  Unity.VisualStudio.Editor.dll
- UnityEditor.TestRunner.dll
  UnityEditor.UI.dll
- UnityEngine.TestRunner.dll
  UnityEngine.UI.dll
 
 [analyzerReferences]
