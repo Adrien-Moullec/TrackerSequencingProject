@@ -12,7 +12,7 @@ namespace TrackSequencingTool
     /// Tracker sequencer playback script using DLL file for SF2 file.
     /// </summary>
     [RequireComponent(typeof(AudioSource))]
-    public abstract class TrackerDllPlayback : MonoBehaviour
+    public class TrackerDllPlayback : MonoBehaviour
     {
         /// <summary>
         /// All Dll C scripts that utilise SF2 files and TinySoundFont library
@@ -48,7 +48,7 @@ namespace TrackSequencingTool
         #region Playback Variables
         [Header("Tracker Sequence Json File")]
         [SerializeField] protected TextAsset textAsset;
-        protected TrackSequencer trackSequencer;
+        protected TrackSequencer sequencer;
         #endregion
 
         #region Private variables
@@ -72,8 +72,8 @@ namespace TrackSequencingTool
         // Play the default track loaded in serialized textasset
         public void PlayTrack()
         {
-            trackSequencer = JsonReadWrite.ReadJSON(textAsset);
-            playTrackEnum = PlayTrackEnum(trackSequencer);
+            sequencer = JsonReadWrite.ReadJSON(textAsset);
+            playTrackEnum = PlayTrackEnum(sequencer);
             StartCoroutine(playTrackEnum);
         }
 
@@ -151,7 +151,7 @@ namespace TrackSequencingTool
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = AudioClip.Create("Test SF2 playback file", AudioSettings.outputSampleRate, 2, AudioSettings.outputSampleRate, true);
             audioSource.Play();
-            trackSequencer = JsonReadWrite.ReadJSON(textAsset);
+            if (textAsset != null) sequencer = JsonReadWrite.ReadJSON(textAsset);
         }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace TrackSequencingTool
                 DrawDefaultInspector();
             }
             catch { }
-            DrawDefaultTrackerDllPlayback((TrackerSequenceTriggerActivate)target);
+            DrawDefaultTrackerDllPlayback((TrackerDllPlayback)target);
         }
         public static void DrawDefaultTrackerDllPlayback(TrackerDllPlayback target)
         {

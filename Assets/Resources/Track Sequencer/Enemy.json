@@ -71,7 +71,7 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "40",
+                "instrument": "38",
                 "velocity": "0.5",
                 "duration": "2.3"
             },
@@ -215,7 +215,7 @@
             "defineChannelStart": {
                 "bank": "0",
                 "instrument": "67",
-                "velocity": "0.4",
+                "velocity": "0.2",
                 "duration": "2.3"
             },
             "CommandLines": [
