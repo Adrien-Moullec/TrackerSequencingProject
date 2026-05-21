@@ -3,7 +3,42 @@ guid: 1eb908d0e89e8894fb62cf01888b7e9e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chest_defaultMat
+    second: {fileID: 2100000, guid: a1cfaaa986ffce04187a04640493be93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: framebottom_defaultMat
+    second: {fileID: 2100000, guid: ffe148892d70a24468002352470b3e35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frametop_defaultMat
+    second: {fileID: 2100000, guid: 07cb1e8a8e80277468f15a2065cb2e52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lock_defaultMat
+    second: {fileID: 2100000, guid: c7f819f6b6c1c474aab8d3b92724b8b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rivets_defaultMat
+    second: {fileID: 2100000, guid: 61c2907da62282d4885dee46f61427d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: side_panels_defaultMat
+    second: {fileID: 2100000, guid: e36142a36d42c4b45b63b3d7ccf36168, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top_defaultMat
+    second: {fileID: 2100000, guid: dce3dba6c3868a04e98f79f28cc02d9f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

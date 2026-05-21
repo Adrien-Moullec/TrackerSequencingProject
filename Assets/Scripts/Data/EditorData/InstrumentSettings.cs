@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+#if UNITY_EDITOR
     using TEF = TrackerEditorFunctions;
+#endif
 
     /// <summary>
     /// Instrument settings to be used line-by-line and at the start of each channel to set how playback sounds.
@@ -16,6 +18,7 @@ namespace TrackSequencingTool
         public string velocity; // Note press speed
         public string duration = ""; // Note duration
 
+#if UNITY_EDITOR
         /// <summary>
         /// Draw data for editor window
         /// </summary>
@@ -29,5 +32,6 @@ namespace TrackSequencingTool
 
         // Editor colour
         protected override Color EditorColor() => Color.yellow;
+#endif
     }
 }

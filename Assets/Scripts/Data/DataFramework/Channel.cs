@@ -5,7 +5,9 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+#if UNITY_EDITOR
     using TEF = TrackerEditorFunctions;
+#endif
 
     /// <summary>
     /// Channel information for a track sequencer file
@@ -17,6 +19,7 @@ namespace TrackSequencingTool
         public InstrumentSettings defineChannelStart; // Instrument data for the channel
         public List<CommandLine> CommandLines = new(); // List of commands for the channel
 
+#if UNITY_EDITOR
         /// <summary>
         /// A display option for editor windows
         /// </summary>
@@ -25,5 +28,6 @@ namespace TrackSequencingTool
             playback = EditorGUILayout.Toggle(playback, GUILayout.Width(TEF.CellWidth));
             defineChannelStart.EditorDraw();
         }
+#endif
     }
 }

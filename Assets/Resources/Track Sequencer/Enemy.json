@@ -1,25 +1,10 @@
 {
     "startingSettings": {
-        "tempo": "500",
+        "tempo": "200",
         "volume": "",
         "timestampName": ""
     },
     "musicSettings": [
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
-        {
-            "tempo": "",
-            "volume": "",
-            "timestampName": ""
-        },
         {
             "tempo": "",
             "volume": "",
@@ -70,26 +55,26 @@
         {
             "playback": true,
             "defineChannelStart": {
-                "bank": "0",
-                "instrument": "38",
-                "velocity": "0.5",
-                "duration": "2.3"
+                "bank": "",
+                "instrument": "101",
+                "velocity": "1",
+                "duration": "2"
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
-                        "key": "60"
+                        "key": "50"
                     },
                     "instrumentSettings": {
                         "bank": "",
                         "instrument": "",
                         "velocity": "",
-                        "duration": "2"
+                        "duration": ""
                     }
                 },
                 {
                     "PlaybackLine": {
-                        "key": ""
+                        "key": "53"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -111,18 +96,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "62"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": "1"
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "63"
+                        "key": "50"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -133,40 +107,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "62"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "63"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "66"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "63"
+                        "key": "53"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -188,7 +129,18 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "62"
+                        "key": "50"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "53"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -214,14 +166,157 @@
             "playback": true,
             "defineChannelStart": {
                 "bank": "0",
-                "instrument": "67",
-                "velocity": "0.2",
-                "duration": "2.3"
+                "instrument": "101",
+                "velocity": "1",
+                "duration": "2"
             },
             "CommandLines": [
                 {
                     "PlaybackLine": {
-                        "key": "48"
+                        "key": "53"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "57"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "53"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "57"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "53"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "57"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                }
+            ]
+        },
+        {
+            "playback": true,
+            "defineChannelStart": {
+                "bank": "",
+                "instrument": "99",
+                "velocity": "0.1",
+                "duration": ""
+            },
+            "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": "45"
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "41"
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -265,73 +360,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "51"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
                         "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "51"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": ""
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "50"
                     },
                     "instrumentSettings": {
                         "bank": "",

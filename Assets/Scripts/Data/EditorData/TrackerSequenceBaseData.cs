@@ -5,6 +5,7 @@ namespace TrackSequencingTool
     // Layout for tracker sequence data that will be used in an editor window
     public abstract class TrackerSequenceBaseData
     {
+#if UNITY_EDITOR
         /// <summary>
         /// Call DrawValues() so this class has a pre-built editorwindow integration
         /// </summary>
@@ -21,5 +22,6 @@ namespace TrackSequencingTool
         /// <returns></returns>
         protected abstract Color EditorColor();
         //return Regex.IsMatch(code, @"^\d{3}[a-g]$");
+#endif
     }
 }

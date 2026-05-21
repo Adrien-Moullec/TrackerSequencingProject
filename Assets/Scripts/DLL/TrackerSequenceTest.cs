@@ -81,7 +81,7 @@ public class AudioDLL : MonoBehaviour
         Debug.Log("Destroy: " + Audio_Shutdown());
     }
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(AudioDLL))]
 [CanEditMultipleObjects]
 public class AudioDLLEditor : Editor
@@ -139,3 +139,4 @@ public class AudioDLLEditor : Editor
         #endregion
     }
 }
+#endif

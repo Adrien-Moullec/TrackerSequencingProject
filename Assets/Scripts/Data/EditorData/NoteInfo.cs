@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+
+#if UNITY_EDITOR
     using TEF = TrackerEditorFunctions;
+#endif
 
     /// <summary>
     /// Note information for each line in a channel in a track sequencer
@@ -13,6 +16,7 @@ namespace TrackSequencingTool
     {
         public string key = ""; // Note to play
 
+#if UNITY_EDITOR
         /// <summary>
         /// Editor window draw values
         /// </summary>
@@ -26,5 +30,6 @@ namespace TrackSequencingTool
 
         /// Colour for editor window
         protected override Color EditorColor() => Color.red;
+#endif
     }
 }

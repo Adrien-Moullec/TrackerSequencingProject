@@ -11,6 +11,7 @@ namespace TrackSequencingTool
         public NoteInfo PlaybackLine; // Note information to play
         public InstrumentSettings instrumentSettings; // Instrument data for the channel
 
+#if UNITY_EDITOR
         /// <summary>
         /// Editor window option to display data
         /// </summary>
@@ -21,6 +22,7 @@ namespace TrackSequencingTool
             PlaybackLine.EditorDraw();
             instrumentSettings.EditorDraw();
         }
+#endif
 
         /// <summary>
         /// Clear data shorthand

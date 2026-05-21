@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+
     /// <summary>
     /// Sequence tracker data functions
     /// </summary>
     public static class TrackerDataFunctions
     {
+#if UNITY_EDITOR
         #region Line functionality
         /// <summary>
         /// Check that all command lines and music setting lengths are of the same length
@@ -176,6 +178,7 @@ namespace TrackSequencingTool
             JsonReadWrite.OutputJSON(sequencer, jsonFile);
         }
         #endregion
+#endif
 
         #region Variable change
         /// <summary>

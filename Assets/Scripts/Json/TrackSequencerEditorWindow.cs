@@ -1,3 +1,5 @@
+
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System;
@@ -8,7 +10,6 @@ namespace TrackSequencingTool
     using TEF = TrackerEditorFunctions;
     using TDF = TrackerDataFunctions;
     using JRW = JsonReadWrite;
-
     /// <summary>
     /// Editor window to display JSON file data for track sequencer
     /// </summary>
@@ -384,3 +385,4 @@ namespace TrackSequencingTool
         #endregion
     }
 }
+#endif

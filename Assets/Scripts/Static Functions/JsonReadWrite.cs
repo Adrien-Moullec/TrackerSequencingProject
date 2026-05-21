@@ -44,6 +44,7 @@ namespace TrackSequencingTool
             return foundValid;
         }
 
+#if UNITY_EDITOR
         /// <summary>
         /// Write track sequencer data to a JSON file or create a new JSON file
         /// </summary>
@@ -70,5 +71,6 @@ namespace TrackSequencingTool
             );
             AssetDatabase.Refresh();
         }
+#endif
     }
 }

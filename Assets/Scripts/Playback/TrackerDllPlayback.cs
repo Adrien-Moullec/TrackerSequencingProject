@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace TrackSequencingTool
 {
@@ -48,6 +49,8 @@ namespace TrackSequencingTool
         #region Playback Variables
         [Header("Tracker Sequence Json File")]
         [SerializeField] protected TextAsset textAsset;
+        [SerializeField] UnityEvent OnPlay;
+        [SerializeField] UnityEvent OnEnd;
         protected TrackSequencer sequencer;
         #endregion
 
@@ -128,6 +131,7 @@ namespace TrackSequencingTool
             }
 
             /// Playback music
+            OnPlay.Invoke();
             for (int lineInt = 0; lineInt < totalCommandLines; lineInt++)
             {
                 TrySetMusicSettings(trackSequencer.musicSettings[lineInt]);
@@ -137,6 +141,7 @@ namespace TrackSequencingTool
 
                 yield return new WaitForSeconds(interval);
             }
+            OnEnd.Invoke();
             isPlaying = false;
         }
 
@@ -269,6 +274,7 @@ namespace TrackSequencingTool
         {
             StopCoroutine(playTrackEnum);
             isPlaying = false;
+            OnEnd.Invoke();
         }
 
         /// <summary>
@@ -306,7 +312,7 @@ namespace TrackSequencingTool
             public int bpm;
         }
     }
-
+#if UNITY_EDITOR
     /// <summary>
     /// Editor window for default tracker Dll playback class.
     /// Controls playback, loading and stop logic
@@ -349,4 +355,5 @@ namespace TrackSequencingTool
                 target.OnDestroy();
         }
     }
+#endif
 }

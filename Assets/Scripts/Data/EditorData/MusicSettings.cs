@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+
+#if UNITY_EDITOR
     using TEF = TrackerEditorFunctions;
+#endif
 
     /// <summary>
     /// Music data across all channels
@@ -16,6 +19,7 @@ namespace TrackSequencingTool
         public string volume; // Overall Volume     
         public string timestampName; // timestamp(event:?) name
 
+#if UNITY_EDITOR
         /// <summary>
         /// Draw values in an editor window
         /// </summary>
@@ -30,6 +34,7 @@ namespace TrackSequencingTool
 
         /// Colour of editor data in window
         protected override Color EditorColor() => Color.blue;
+#endif
 
         /// <summary>
         /// Clear data

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TrackSequencingTool
 {
+#if UNITY_EDITOR
     /// <summary>
     /// Cross-script functions relating to utilizing track sequencer data in editor windows
     /// </summary>
@@ -120,4 +121,5 @@ namespace TrackSequencingTool
             }
         }
     }
+#endif
 }
