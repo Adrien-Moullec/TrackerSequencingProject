@@ -32,6 +32,7 @@ namespace StarterAssets
 		public float JumpTimeout = 0.1f;
 		[Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
 		public float FallTimeout = 0.15f;
+		public GameObject UIDisclaimer;
 
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
@@ -71,6 +72,8 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private InputAction UIActivate;
+		bool menuActivate = false;
 
 		private const float _threshold = 0.01f;
 
@@ -115,6 +118,24 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+		}
+		void OnEnable()
+		{
+			_playerInput = GetComponent<PlayerInput>();
+			UIActivate = _playerInput.actions["Interact"];
+			SetUI(false);
+			UIActivate.performed += input => SetUI(true);
+			UIActivate.canceled += input => SetUI(false);
+		}
+		void OnDisable()
+		{
+			UIActivate.performed -= input => SetUI(true);
+			UIActivate.canceled -= input => SetUI(false);
+		}
+
+		private void SetUI(bool activate)
+		{
+			UIDisclaimer.SetActive(activate);
 		}
 
 		private void LateUpdate()

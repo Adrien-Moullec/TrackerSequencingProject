@@ -231,15 +231,9 @@ namespace TrackSequencingTool
             /// Set instrument and bank/library of channel
             if (int.TryParse(instrumentSettings.instrument, out preset))
                 if (int.TryParse(instrumentSettings.bank, out bank))
-                {
-                    Debug.Log("Bank set " + bank + "," + preset);
                     Tracker_SetBankPreset(channel, bank, preset);
-                }
                 else
-                {
-                    Debug.Log("Channel set " + bank + "," + preset);
                     Tracker_SetBankPreset(channel, 0, preset);
-                }
         }
 
         /// <summary>
