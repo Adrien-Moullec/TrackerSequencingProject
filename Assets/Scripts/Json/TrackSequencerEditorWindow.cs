@@ -75,6 +75,7 @@ namespace TrackSequencingTool
             );
 
             /// File handling area of editorwindow
+            EditorGUILayout.LabelField("TRACK SEQUENCER - JSON FILE EDITOR");
             EditorGUILayout.BeginVertical();
             DisplayFileArea();
             if (jsonFile != null)
