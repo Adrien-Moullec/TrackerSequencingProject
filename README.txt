@@ -40,3 +40,9 @@ Software testers required to test the tool
 Opportunity for transformative/generative music.
 Expanding into alternative platforms
 Small sample size full of tech users, Larger sample size with a broader demographic
+
+Something here about how people responded to the tool/audio samples I created.
+Requires more testers and musical creators to test the limits of sf2 file playback.
+Future potential for greater sound samples or tool improvement.
+Mention things I didn’t get to do.
+
