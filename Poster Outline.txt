@@ -1,0 +1,41 @@
+INTRODUCTION
+
+Music track sequencing was used in older game consoles where storage space and audio capabilities were limited. Music used to be a list of text commands that played preset instrumental tones. Audio has since been upgraded to pre-recorded tracks, creating greater immersive experiences.
+
+This research dives into the history of music in gaming and explores the question “Can track sequencers be relevant in modern game development?”.
+
+
+OBJECTIVES
+
+•Demonstrate the potential of legacy music playback formats in modern systems. 
+•Allow quick prototype or full music production for a game developer.
+•Removes the barrier between level design/gameplay programming and music creation.
+•Allow for future modification of tracks due to the text-command style of music files such as transformative or generative music.
+
+
+METHODOLOGY
+
+The first step is creating an sf2 file playback method, using TinySoundFont in C, that can be read by other applications. A sequence editor tool !!!!!!! will be created to create and adjust musical files.
+
+Samples of tracker sequence playback will be implemented in a Unity project for game testers to play. An accompanying questionnaire will provide input on the authenticity and immersion of the music. 
+
+The results of these playtest will allow insight into the direction and potential that this type of music format holds.
+
+
+RESULTS
+
+///////////////////////////////
+
+These readings demonstrate positive results within the s
+
+
+
+CONCLUSION
+
+In conclusion, the results demonstrate …………………………………………………………………………………….
+This method requires further study to ascertain its functionality within the creative industry.
+
+Producing track sequencer music files can easily be created and altered but require specialist tools and training. Using a track sequencer only requires music knowledge; implementing it into a project needs programming skills.
+There is much potential for functionality such as musical event triggers, parameter-driven audio, generative and transformative music due to the text-style music commands.
+The current showcase is limited to certain platforms and needs further technical improvement to work across projects. The output of this method of music writing is dependent on the quality of audio samples used.
+A larger demographic of user and usability testing would aid in creating a streamlined tool and improving the standards of the output audio. 

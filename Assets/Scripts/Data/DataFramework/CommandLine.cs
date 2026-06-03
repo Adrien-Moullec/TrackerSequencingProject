@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace TrackSequencingTool
 {
@@ -8,8 +9,10 @@ namespace TrackSequencingTool
     [Serializable]
     public class CommandLine
     {
-        public NoteInfo PlaybackLine; // Note information to play
-        public InstrumentSettings instrumentSettings; // Instrument data for the channel
+        [Tooltip("Note information to play.")]
+        public NoteInfo PlaybackLine;
+        [Tooltip("Instrument data for the channel.")]
+        public InstrumentSettings instrumentSettings;
 
 #if UNITY_EDITOR
         /// <summary>

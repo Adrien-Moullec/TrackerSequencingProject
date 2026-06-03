@@ -15,8 +15,11 @@ namespace TrackSequencingTool
     [Serializable]
     public class MusicSettings : TrackerSequenceBaseData
     {
-        public string tempo; // Playback speed
-        public string volume; // Overall Volume     
+        [Tooltip("Playback speed.")]
+        public string tempo;
+        [Tooltip("Overall Volume.")]
+        public string volume;
+        [Tooltip("String event to call (Currently unused).")]
         public string timestampName; // timestamp(event:?) name
 
 #if UNITY_EDITOR

@@ -17,20 +17,25 @@ namespace TrackSequencingTool
     {
         #region Variables
 
-        // Json
+        [Tooltip("Referenced Json file.")]
         TextAsset jsonFile;
-        string newJsonFileName = "";
 
-        // Channel settings
+        [Tooltip("Track sequencer data.")]
         private TrackSequencer sequencer = null;
+        [Tooltip("Scroll data for the track sequencer.")]
         private Vector2 channelScroll;
+        [Tooltip("Displayed track sequencer data channel width.")]
         private float channelWidth = 220;
+        [Tooltip("Display aid for time signature.")]
         int beats = 4;
 
-        // Copy/Paste
+        [Tooltip("Saved information on selected data.")]
         private SequencerSelection selection = new();
+        [Tooltip("Saved information on copied data.")]
         private SequencerClipboard clipboard = new();
 
+        [Tooltip("Variable to store information on the new JSON file name that will be created on create button clicked.")]
+        string newJsonFileName = "";
         #endregion
 
         #region Initialize

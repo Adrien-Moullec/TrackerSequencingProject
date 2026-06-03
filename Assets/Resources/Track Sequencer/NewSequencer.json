@@ -1,10 +1,15 @@
 {
     "startingSettings": {
-        "tempo": "700",
+        "tempo": "",
         "volume": "",
         "timestampName": ""
     },
     "musicSettings": [
+        {
+            "tempo": "",
+            "volume": "",
+            "timestampName": ""
+        },
         {
             "tempo": "",
             "volume": "",
@@ -50,10 +55,10 @@
         {
             "playback": true,
             "defineChannelStart": {
-                "bank": "0",
-                "instrument": "9",
-                "velocity": "0.2",
-                "duration": "2.3"
+                "bank": "",
+                "instrument": "",
+                "velocity": "",
+                "duration": ""
             },
             "CommandLines": [
                 {
@@ -91,6 +96,39 @@
                 },
                 {
                     "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": "60"
+                    },
+                    "instrumentSettings": {
+                        "bank": "45",
+                        "instrument": "3",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
                         "key": "64"
                     },
                     "instrumentSettings": {
@@ -113,29 +151,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "72"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "76"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "79"
+                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -149,19 +165,41 @@
         {
             "playback": true,
             "defineChannelStart": {
-                "bank": "0",
-                "instrument": "10",
-                "velocity": "0.4",
-                "duration": "2.3"
+                "bank": "",
+                "instrument": "",
+                "velocity": "",
+                "duration": ""
             },
             "CommandLines": [
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
+                {
+                    "PlaybackLine": {
+                        "key": ""
+                    },
+                    "instrumentSettings": {
+                        "bank": "",
+                        "instrument": "",
+                        "velocity": "",
+                        "duration": ""
+                    }
+                },
                 {
                     "PlaybackLine": {
                         "key": "60"
                     },
                     "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
+                        "bank": "45",
+                        "instrument": "3",
                         "velocity": "",
                         "duration": ""
                     }
@@ -190,7 +228,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "64"
+                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -201,7 +239,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "67"
+                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -212,7 +250,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "72"
+                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",
@@ -223,18 +261,7 @@
                 },
                 {
                     "PlaybackLine": {
-                        "key": "76"
-                    },
-                    "instrumentSettings": {
-                        "bank": "",
-                        "instrument": "",
-                        "velocity": "",
-                        "duration": ""
-                    }
-                },
-                {
-                    "PlaybackLine": {
-                        "key": "79"
+                        "key": ""
                     },
                     "instrumentSettings": {
                         "bank": "",

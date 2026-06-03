@@ -19,60 +19,76 @@ namespace TrackSequencingTool
         /// All Dll C scripts that utilise SF2 files and TinySoundFont library
         /// </summary>
         #region Export functions
-        const string DdlReference = "IRPC";
-        [DllImport(DdlReference)]
+        const string DllReference = "IRPC";
+
+        [DllImport(DllReference)]
         private static extern int Tracker_Initialize(string sf2Path, int sampleRate, float gain);
 
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_Shutdown();
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_PlayNote(int channel, int key, float velocity);
 
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_EndNote(int channel, int note);
 
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_SetChannelPreset(int channel, int presetNumber);
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_SetBankPreset(int channel, int bank, int presetNumber);
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern void Tracker_AudioRender(IntPtr buffer, int frames);
 
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_GetInitializedState();
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_GetChannelPreset(int channel);
-        [DllImport(DdlReference)]
+        [DllImport(DllReference)]
         protected static extern int Tracker_GetPresetCount();
         #endregion
 
         #region Playback Variables
         [Header("Tracker Sequence Json File")]
+        [Tooltip("Current Json music sequencer to play.")]
         [SerializeField] protected TextAsset textAsset;
+        [Tooltip("Events to happen when playing starts.")]
         [SerializeField] UnityEvent OnPlay;
+        [Tooltip("Events to happen when playing ends.")]
         [SerializeField] UnityEvent OnEnd;
+        [Tooltip("Sequencer data storage to read from while playing music sequencer.")]
         protected TrackSequencer sequencer;
         #endregion
 
         #region Private variables
+        [Tooltip("Interval between music commands in seconds.")]
         float interval;
+        [Tooltip("Is the track sequencer playing.")]
         bool isPlaying = false;
+        [Tooltip("Audio data to pass through into the DLL file.")]
         float[] nativeBuffer;
+
+        [Tooltip("AudioSource reference for audio playback.")]
         AudioSource audioSource;
+        [Tooltip("Currently playing track sequencer coroutine.")]
         IEnumerator playTrackEnum;
+        [Tooltip("List of playable channels to play through.")]
         List<Channel> playableChannels;
-        MusicSettingsInfo musicSettingsInfo;
+        [Tooltip("Dictionary of current command lines for each channel.")]
         Dictionary<int, CommandLineInfo> channelInfo = new();
+        [Tooltip("Store Music Setting info for playback setting functionality.")]
+        MusicSettingsInfo musicSettingsInfo;
+        [Tooltip("Store command line info.")]
         CommandLineInfo commandLineInfo;
-        int preset;
-        int bank;
-        float floatVar;
         #endregion
 
-        // On Begin
+        /// <summary>
+        /// On Begin
+        /// </summary>
         public void Start() => InitializeAudioSource();
 
-        // Play the default track loaded in serialized textasset
+        /// <summary>
+        /// Play the default track loaded in serialized textasset
+        /// </summary>
         public void PlayTrack()
         {
             sequencer = JsonReadWrite.ReadJSON(textAsset);
@@ -80,20 +96,29 @@ namespace TrackSequencingTool
             StartCoroutine(playTrackEnum);
         }
 
-        // Play custom track sequencer from TrackSequencer class
+        /// <summary>
+        /// Play custom track sequencer from TrackSequencer class
+        /// </summary>
+        /// <param name="trackSequencer"></param>
         public void PlayTrack(TrackSequencer trackSequencer)
         {
             playTrackEnum = PlayTrackEnum(trackSequencer);
             StartCoroutine(playTrackEnum);
         }
-        // Play custom track sequencer from textasset
+        /// <summary>
+        /// Play custom track sequencer from textasset
+        /// </summary>
+        /// <param name="textAsset"></param>
         public void PlayTrack(TextAsset textAsset)
         {
             playTrackEnum = PlayTrackEnum(JsonReadWrite.ReadJSON(textAsset));
             StartCoroutine(playTrackEnum);
         }
 
+        /// <summary>
         /// Play through track sequencer line by line
+        /// </summary>
+        /// <param name="trackSequencer"> Sequencer data </param>
         private IEnumerator PlayTrackEnum(TrackSequencer trackSequencer)
         {
 
@@ -160,7 +185,7 @@ namespace TrackSequencingTool
         }
 
         /// <summary>
-        /// Audio data handler
+        /// Audio data handler, activated on audio pass. Function was created with the Aid of OpenAI (see readme)
         /// </summary>
         /// <param name="data"></param>
         /// <param name="channels"></param>
@@ -223,14 +248,14 @@ namespace TrackSequencingTool
             if (instrumentSettings == null) return;
 
             /// Try set velocity and duration of notes
-            if (float.TryParse(instrumentSettings.velocity, out floatVar))
+            if (float.TryParse(instrumentSettings.velocity, out float floatVar))
                 channelInfo[channel].velocity = floatVar;
             if (float.TryParse(instrumentSettings.duration, out floatVar))
                 channelInfo[channel].duration = MusicFunctions.BeatTime(musicSettingsInfo.bpm) * floatVar;
 
             /// Set instrument and bank/library of channel
-            if (int.TryParse(instrumentSettings.instrument, out preset))
-                if (int.TryParse(instrumentSettings.bank, out bank))
+            if (int.TryParse(instrumentSettings.instrument, out int preset))
+                if (int.TryParse(instrumentSettings.bank, out int bank))
                     Tracker_SetBankPreset(channel, bank, preset);
                 else
                     Tracker_SetBankPreset(channel, 0, preset);
@@ -288,7 +313,9 @@ namespace TrackSequencingTool
         [Serializable]
         private class CommandLineInfo
         {
+            [Tooltip("Duration of the command line note.")]
             public float duration;
+            [Tooltip("Press velocity of the note.")]
             public float velocity;
             public CommandLineInfo(float duration, float velocity)
             {
@@ -303,6 +330,7 @@ namespace TrackSequencingTool
         [Serializable]
         private struct MusicSettingsInfo
         {
+            [Tooltip("Current beats per minute of the music.")]
             public int bpm;
         }
     }

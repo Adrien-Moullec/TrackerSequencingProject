@@ -19,9 +19,7 @@ extern "C" {
             return 1;
 
         int result = InitiateTsf(path, sampleRate, gain);
-
-        if (result)
-            Sf2Initialized = 1;
+        if (result) Sf2Initialized = 1;
 
         return result;
     }

@@ -10,9 +10,12 @@ namespace TrackSequencingTool
     [Serializable]
     public class TrackSequencer
     {
-        [HideInInspector] public MusicSettings startingSettings = new MusicSettings(); // Starting overall music settings
-        public List<MusicSettings> musicSettings = new(); // Line-by-line music settings
-        public List<Channel> channels = new(); // List of channel information
+        [Tooltip("Starting overall music settings.")]
+        [HideInInspector] public MusicSettings startingSettings = new MusicSettings();
+        [Tooltip("Line-by-line music settings.")]
+        public List<MusicSettings> musicSettings = new();
+        [Tooltip("List of channel information.")]
+        public List<Channel> channels = new();
 
         /// <summary>
         /// Returns the max list length out of all the channels for data management
