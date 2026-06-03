@@ -1,4 +1,4 @@
-Aid with Audio Filter in Unity and C: OpenAI (2025). ChatGPT. [online] ChatGPT. Available at: https://chatgpt.com/. (Accessed: 7 May 2026).
+Aid with Audio Filter function in Unity and C: OpenAI (2025). ChatGPT. [online] ChatGPT. Available at: https://chatgpt.com/. (Accessed: 7 May 2026).
 Sketchfab (2026) Question Mark. Available at: Sketchfab Question Mark Model (Accessed: 21 May 2026).
 Sketchfab (2026) The Cartoon Knight – Free Download. Available at: Sketchfab Cartoon Knight Model (Accessed: 21 May 2026).
 Free3D (2026) Treasure Chest 3D Model. Available at: Free3D Treasure Chest Model (Accessed: 21 May 2026).
